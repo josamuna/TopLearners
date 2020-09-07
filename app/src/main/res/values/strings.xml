@@ -2,4 +2,13 @@
     <string name="app_name">LEADERBOARD</string>
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
+    <string name="image_laucher">Laucher image</string>
+    <string name="text_first_name">First Name</string>
+    <string name="text_last_name">Last Name</string>
+    <string name="text_email">Email Address</string>
+    <string name="text_project_github">Project on GitHub</string>
+    <string name="btn_submit_project">Submit</string>
+    <string name="img_background">Splash Background Image</string>
+    <string name="image_background_project">Background Image Project</string>
+    <string name="img_main_background">Main Image background</string>
 </resources>
