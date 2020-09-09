@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <stroke android:width="1dp" />
+    <size android:height="@dimen/height_edittext_project" />
+    <corners android:topLeftRadius="@dimen/radius_edittext_project"
+        android:topRightRadius="@dimen/radius_edittext_project"
+        android:bottomRightRadius="@dimen/radius_edittext_project"
+        android:bottomLeftRadius="@dimen/radius_edittext_project"/>
+    <padding android:left="@dimen/padding_edittext_project"
+        android:bottom="@dimen/padding_edittext_project"
+        android:right="@dimen/padding_edittext_project"
+        android:top="@dimen/padding_edittext_project"/>
+    <gradient android:startColor="@android:color/white"
+        android:centerColor="@android:color/white"
+        android:endColor="@android:color/white" />
+</shape>

@@ -18,16 +18,58 @@
 
 <!--  Custom Style  -->
     <style name="EditTextProject" parent="@style/Widget.AppCompat.EditText">
-        <item name="android:background">@android:color/white</item>
+        <item name="android:background">@drawable/edittext_background_rounded</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
         <item name="android:elegantTextHeight">true</item>
         <item name="textStartPadding">15dp</item>
+        <item name="android:layout_height">45dp</item>
+    </style>
+<!-- Style for Button submit project-->
+    <style name="ButtonSubmitProject" parent="@android:style/Widget.Material.Light.Button">
+        <item name="android:background">@drawable/button_submit_rounded_1</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Body2</item>
+        <item name="android:textSize">@dimen/button_text_size1</item>
+        <item name="android:width">@dimen/button_size1</item>
+    </style>
+<!--  Style for Button in dialog for submit project  -->
+    <style name="ButtonDialogSubmitProject" parent="@android:style/Widget.Material.Light.Button">
+        <item name="android:background">@drawable/button_dialog_question</item>
+        <item name="android:textColor">@color/customColorButton</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Body2</item>
+        <item name="android:textSize">@dimen/button_text_size1</item>
+        <item name="android:width">@dimen/button_size1</item>
     </style>
 
-    <style name="ButtonSubmit" parent="@android:style/Widget.Material.Light.Button">
-        <item name="color">@android:color/holo_blue_dark</item>
-        <item name="backgroundTint">@color/customColorButton</item>
+    <style name="ButtonDialogSubmitProjectFragment" parent="@android:style/Widget.Material.Light.Button">
+        <item name="android:background">@drawable/button_submit_rounded_2</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Caption</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/button_text_size1</item>
+        <item name="android:width">@dimen/button_size1</item>
+    </style>
+
+    <style name="ButtonCloseDialog" parent="@style/Widget.AppCompat.ImageButton">
+        <item name="android:backgroundTint">@android:color/white</item>
+    </style>
+
+    <style name="TextCustomDialog" parent="@style/Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/colorTextCustomDialog</item>
+        <item name="android:textSize">@dimen/text_dialog_size1</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextNameRecyclerViewItem" parent="@style/Base.Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/colorTextCustomDialog</item>
+        <item name="android:textSize">@dimen/text_listitem1</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="DetailsRecyclerViewItem" parent="@style/Base.Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/colorTextCustomDialog</item>
+        <item name="android:textSize">@dimen/text_listitem2</item>
     </style>
 
 </resources>

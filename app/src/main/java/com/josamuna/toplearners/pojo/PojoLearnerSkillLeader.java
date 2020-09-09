@@ -1,4 +1,4 @@
-package com.josamuna.toplearners;
+package com.josamuna.toplearners.pojo;
 
 import java.util.HashMap;
 import java.util.Map;

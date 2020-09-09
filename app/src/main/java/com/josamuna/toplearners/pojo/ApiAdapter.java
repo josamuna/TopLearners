@@ -1,4 +1,4 @@
-package com.josamuna.toplearners;
+package com.josamuna.toplearners.pojo;
 
 import retrofit.RestAdapter;
 

@@ -5,4 +5,15 @@
     <dimen name="appbar_padding">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="appbar_padding_top">8dp</dimen>
+    <dimen name="button_text_size1">22sp</dimen>
+    <dimen name="text_dialog_size1">25sp</dimen>
+    <dimen name="button_size1">150dp</dimen>
+    <dimen name="padding_edittext_project">4dp</dimen>
+    <dimen name="radius_edittext_project">5dp</dimen>
+    <dimen name="height_edittext_project">40dp</dimen>
+    <dimen name="card_elevation">4dp</dimen>
+    <dimen name="card_content_padding">16dp</dimen>
+    <dimen name="card_corner_radius">4dp</dimen>
+    <dimen name="text_listitem1">22sp</dimen>
+    <dimen name="text_listitem2">18sp</dimen>
 </resources>
