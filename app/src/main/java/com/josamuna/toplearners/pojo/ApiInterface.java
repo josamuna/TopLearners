@@ -1,4 +1,8 @@
-package com.josamuna.toplearners;
+package com.josamuna.toplearners.pojo;
+
+import com.josamuna.toplearners.pojo.PojoLearnerLeader;
+import com.josamuna.toplearners.pojo.PojoLearnerSkillLeader;
+import com.josamuna.toplearners.pojo.PojoProjectSubmit;
 
 import java.util.List;
 

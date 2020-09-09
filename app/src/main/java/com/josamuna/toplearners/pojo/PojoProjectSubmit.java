@@ -1,4 +1,4 @@
-package com.josamuna.toplearners;
+package com.josamuna.toplearners.pojo;
 
 public class PojoProjectSubmit {
     private String firstName;
