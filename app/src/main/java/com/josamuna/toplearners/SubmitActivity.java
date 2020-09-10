@@ -68,6 +68,12 @@ public class SubmitActivity extends AppCompatActivity {
         mTextLastName = findViewById(R.id.text_last_name);
         mTextEmail = findViewById(R.id.text_email);
         mTextProjectGithub = findViewById(R.id.text_project_github);
+
+        mTextFirstName.setText("Josue");
+        mTextLastName.setText("Isamuna Nkembo");
+        mTextEmail.setText("josamuna2009@gmail.com");
+        mTextProjectGithub.setText("https://github.com/josamuna/TopLearners");
+
         Button btnSubmit = findViewById(R.id.btn_submit_project);
 
         btnSubmit.setOnClickListener(view1 -> {
