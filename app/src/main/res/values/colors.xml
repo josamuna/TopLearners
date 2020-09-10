@@ -5,4 +5,6 @@
     <color name="colorAccent">#398ED6</color>
     <color name="customColorButton">#EE8A09</color>
     <color name="colorTextCustomDialog">#717171</color>
+    <color name="green_color">#05920B</color>
+    <color name="red_color">#F00404</color>
 </resources>

@@ -23,4 +23,10 @@
     <string name="image_logo_learner_iq">Top Learner IQ</string>
     <string name="text_learner_iq_name">Learner Name</string>
     <string name="text_learner_iq_details">Learner details</string>
+    <string name="image_success_submission">Success submission</string>
+    <string name="text_success_submission">"Submission Successful "</string>
+    <string name="text_fail_submission">Submission not Successful</string>
+    <string name="image_fail_submission">Fail Submission</string>
+    <string name="toast_fail_load_learner_leaders">Failed to load learners leaders</string>
+    <string name="toast_fail_load_learner_skill">Failed to load learners skill IQ</string>
 </resources>
