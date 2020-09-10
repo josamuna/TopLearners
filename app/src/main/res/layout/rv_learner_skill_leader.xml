@@ -34,6 +34,7 @@
                 android:layout_marginStart="16dp"
                 android:text="@string/text_learner_iq_name"
                 app:layout_constraintBottom_toTopOf="@+id/guideline3"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/image_logo_learner_iq" />
 
             <TextView
@@ -42,6 +43,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@string/text_learner_iq_details"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/text_learner_iq_name"
                 app:layout_constraintTop_toTopOf="@+id/guideline3" />
 

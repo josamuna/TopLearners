@@ -10,6 +10,7 @@
     <dimen name="button_size1">150dp</dimen>
     <dimen name="padding_edittext_project">4dp</dimen>
     <dimen name="radius_edittext_project">5dp</dimen>
+    <dimen name="radius_dialog_project">30dp</dimen>
     <dimen name="height_edittext_project">40dp</dimen>
     <dimen name="card_elevation">4dp</dimen>
     <dimen name="card_content_padding">16dp</dimen>

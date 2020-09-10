@@ -2,21 +2,18 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.LearnerLeaderFragment">
+    tools:context=".TestLoadActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_fragment_learner_leader"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:id="@+id/rv1"
+        android:layout_width="409dp"
+        android:layout_height="729dp"
+        android:layout_marginBottom="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/rv_learner_leader_item">
-
-    </androidx.recyclerview.widget.RecyclerView>
-
+        tools:listitem="@layout/item_test_load" />
 </androidx.constraintlayout.widget.ConstraintLayout>

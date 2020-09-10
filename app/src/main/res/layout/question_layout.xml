@@ -3,18 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="350dp"
-    android:background="@drawable/edittext_background_rounded">
+    android:layout_height="350dp">
 
     <TextView
         android:id="@+id/text_dialog_question_submit"
-        style="@style/TextCustomDialog"
+        style="@style/TextCustomDialog1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:layout_marginBottom="16dp"
         android:text="@string/text_dialog_question_submit"
-        app:layout_constraintBottom_toTopOf="@+id/button_dialog_question_submit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,7 +21,8 @@
         style="@style/ButtonDialogSubmitProject"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="32dp"
         android:text="@string/button_dialog_question_submit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,8 +34,8 @@
         style="@style/ButtonCloseDialog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
         android:contentDescription="@string/image_button_close"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
