@@ -34,15 +34,16 @@ public class MainActivity extends AppCompatActivity {
 //            PlaceholderFragment placeholderFragment = new PlaceholderFragment();
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                switch (tab.getPosition()) {
-                    case 0:
+//                switch (tab.getPosition()) {
+//                    case 0:
+                        mViewPager.setCurrentItem(tab.getPosition());
 //                        placeholderFragment.loadLeanerLeaders();
 //                        Toast.makeText(getApplicationContext(), "TAB 1", Toast.LENGTH_LONG).show();
-                        break;
-                    case 1:
+//                        break;
+//                    case 1:
 //                        placeholderFragment.loadLearnerSkill();
 //                        Toast.makeText(getApplicationContext(), "TAB 2", Toast.LENGTH_LONG).show();
-                }
+//                }
             }
 
             @Override

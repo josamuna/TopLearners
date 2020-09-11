@@ -4,16 +4,16 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class PojoProjectSubmit {
-    @SerializedName("firstName")
+    @SerializedName("entry.1877115667")
     @Expose
     private String firstName;
-    @SerializedName("lastName")
+    @SerializedName("entry.2006916086")
     @Expose
     private String lastName;
-    @SerializedName("emailAddress")
+    @SerializedName("entry.1824927963")
     @Expose
     private String emailAddress;
-    @SerializedName("linkGitHub")
+    @SerializedName("entry.284483984")
     @Expose
     private String linkGitHub;
 

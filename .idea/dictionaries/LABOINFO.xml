@@ -2,9 +2,11 @@
   <dictionary name="LABOINFO">
     <words>
       <w>edittext</w>
+      <w>informations</w>
       <w>josamuna</w>
       <w>leaderboard</w>
       <w>pojo</w>
+      <w>skilliq</w>
       <w>toplearners</w>
     </words>
   </dictionary>
