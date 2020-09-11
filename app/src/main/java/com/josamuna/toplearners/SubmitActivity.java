@@ -1,17 +1,10 @@
 package com.josamuna.toplearners;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.ContextCompat;
-
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -22,19 +15,15 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import com.josamuna.toplearners.pojo.ApiAdapter;
-import com.josamuna.toplearners.pojo.PojoLearnerLeader;
-import com.josamuna.toplearners.pojo.PojoLearnerSkillLeader;
 import com.josamuna.toplearners.pojo.PojoProjectSubmit;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
 import java.util.Objects;
 
-import retrofit.RetrofitError;
-import retrofit.http.FormUrlEncoded;
-import retrofit.http.POST;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -42,8 +31,6 @@ import retrofit2.Response;
 public class SubmitActivity extends AppCompatActivity {
 
     private Context mContext;
-    private PojoLearnerLeader mPojoLearnerLeader;
-    private PojoLearnerSkillLeader mPojoLearnerSkillLeader;
     private ViewGroup mViewGroup;
     private EditText mTextFirstName;
     private EditText mTextLastName;
@@ -93,16 +80,19 @@ public class SubmitActivity extends AppCompatActivity {
                 emailAddress, gitHubProject)).enqueue(new Callback<PojoProjectSubmit>() {
             @Override
             public void onResponse(Call<PojoProjectSubmit> call, Response<PojoProjectSubmit> response) {
-                mPojoProjectSubmit = response.body();
-                Toast.makeText(mContext, String.format("FirstName = %s\nLastName = %s\nEmail Address = %s\nGitHub Project link = %s",
-                        mPojoProjectSubmit.getFirstName(), mPojoProjectSubmit.getLastName(), mPojoProjectSubmit.getEmailAddress(),
-                        mPojoProjectSubmit.getLinkGitHub()), Toast.LENGTH_LONG).show();
-                progressDialog.dismiss();
-                showCustomDialogMessageSubmit(R.layout.success_layout);
+                if(response.isSuccessful()) {
+                    mPojoProjectSubmit = response.body();
+                    Toast.makeText(mContext, String.format("FirstName = %s\nLastName = %s\nEmail Address = %s\nGitHub Project link = %s",
+                            mPojoProjectSubmit.getFirstName(), mPojoProjectSubmit.getLastName(), mPojoProjectSubmit.getEmailAddress(),
+                            mPojoProjectSubmit.getLinkGitHub()), Toast.LENGTH_LONG).show();
+                    progressDialog.dismiss();
+                    showCustomDialogMessageSubmit(R.layout.success_layout);
+                }
             }
 
             @Override
             public void onFailure(Call<PojoProjectSubmit> call, Throwable t) {
+                progressDialog.dismiss();
                 showCustomDialogMessageSubmit(R.layout.fail_layout);
             }
         });
@@ -186,14 +176,13 @@ public class SubmitActivity extends AppCompatActivity {
 
         Button buttonDialogQuestionSubmit = view.findViewById(R.id.button_dialog_question_submit);
         buttonDialogQuestionSubmit.setOnClickListener(view2 -> {
+            alertDialog.cancel();
             executeSubmissionProject(mTextFirstName.getText().toString(), mTextLastName.getText().toString(),
                     mTextEmail.getText().toString(), mTextProjectGithub.getText().toString());
         });
 
         ImageButton buttonImageClose = view.findViewById(R.id.image_button_close);
-        buttonImageClose.setOnClickListener(view1 -> {
-            alertDialog.cancel();
-        });
+        buttonImageClose.setOnClickListener(view1 -> alertDialog.cancel());
 
         alertDialog.show();
     }
@@ -209,61 +198,20 @@ public class SubmitActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
-    private void showSubmissionStatus(int layout) {
-        View view = LayoutInflater.from(this).inflate(layout, mViewGroup, false);
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setView(view);
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
-    }
-
-
-//    private void executeSubmissionProject() {
-//        List<PojoLearnerLeader> leaders = new ArrayList<>();
-//        // Load TopLearners
-//        ApiAdapter.getClient().getLearnerLeader(new Callback<List<PojoLearnerLeader>>() {
-//            @Override
-//            public void success(List<PojoLearnerLeader> pojoLearnerLeaders, Response response) {
-////                for(PojoLearnerLeader lst : pojoLearnerLeaders){
-////                    System.out.println(String.format(Locale.ENGLISH,"Name = %s\nHours = %d\nCountry = %s\nBadgeUrl = ",
-////                            lst.getName(), lst.getHours(), lst.getCountry(), lst.getBadgeUrl()));
-////                }
-//                leaders.addAll(pojoLearnerLeaders);
-//                Log.d("DATA_LEARNER", "Learners Loaded Successfully");
-//                Toast.makeText(mContext, "List Size = " + leaders.size(), Toast.LENGTH_LONG).show();
-//            }
-//
-//
-//            @Override
-//            public void failure(RetrofitError error) {
-//                Toast.makeText(mContext, "Failed to load data", Toast.LENGTH_LONG).show();
-//            }
-//        });
-        // Load TopSkillIQ
-//        ApiAdapter.getClient().getLearnerSkillIqLeader(new Callback<List<PojoLearnerSkillLeader>>() {
-//            @Override
-//            public void success(List<PojoLearnerSkillLeader> pojoLearnerSkillLeaders, Response response) {
-//                for(PojoLearnerSkillLeader lst : pojoLearnerSkillLeaders) {
-//                    System.out.println(String.format(Locale.ENGLISH,"Name = %s\nScore = %d\nCountry = %s\nBadgeUrl = ",
-//                            lst.getName(), lst.getScore(), lst.getCountry(), lst.getBadgeUrl()));
-//                }
-//            }
-//
-//            @Override
-//            public void failure(RetrofitError error) {
-//                Toast.makeText(mContext, "Failed to load data", Toast.LENGTH_LONG).show();
-//            }
-//        });
-
+//    private void showSubmissionStatus(int layout) {
+//        View view = LayoutInflater.from(this).inflate(layout, mViewGroup, false);
+//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//        builder.setView(view);
+//        AlertDialog alertDialog = builder.create();
+//        alertDialog.show();
 //    }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
-        switch (id) {
-            case android.R.id.home :
-                Intent intent = new Intent(SubmitActivity.this, MainActivity.class);
-                startActivity(intent);
+        if (id == android.R.id.home) {
+            Intent intent = new Intent(SubmitActivity.this, MainActivity.class);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }
