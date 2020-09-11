@@ -16,7 +16,7 @@ public class SplashActivity extends AppCompatActivity {
 //        Handler handler = new Handler(Looper.getMainLooper());
 //        handler.postDelayed(() ->{
 //        }, 2000);
-//        new CountDownTimer(0, 1000) {
+
         new CountDownTimer(3000, 1000) {
             @Override
             public void onTick(long l) {}

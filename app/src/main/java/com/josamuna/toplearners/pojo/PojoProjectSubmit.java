@@ -1,9 +1,20 @@
 package com.josamuna.toplearners.pojo;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class PojoProjectSubmit {
+    @SerializedName("firstName")
+    @Expose
     private String firstName;
+    @SerializedName("lastName")
+    @Expose
     private String lastName;
+    @SerializedName("emailAddress")
+    @Expose
     private String emailAddress;
+    @SerializedName("linkGitHub")
+    @Expose
     private String linkGitHub;
 
     public String getFirstName() {

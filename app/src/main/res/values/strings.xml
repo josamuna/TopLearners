@@ -2,7 +2,6 @@
     <string name="app_name">LEADERBOARD</string>
     <string name="tab_text_1">Learning Leaders</string>
     <string name="tab_text_2">Skill ID Leaders</string>
-    <string name="image_launcher">Launcher image</string>
     <string name="text_first_name">First Name</string>
     <string name="text_last_name">Last Name</string>
     <string name="text_email">Email Address</string>
@@ -10,13 +9,11 @@
     <string name="btn_submit_project">Submit</string>
     <string name="img_background">Splash Background Image</string>
     <string name="image_background_project">Background Image Project</string>
-    <string name="img_main_background">Main Image background</string>
     <string name="text_dialog_question_submit">Are you sure ?</string>
     <string name="button_dialog_question_submit">Yes</string>
     <string name="image_button_close">Close</string>
     <string name="button_submit_project_fragment">Submit</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="image_logo_learner">"Logo Top Learner "</string>
     <string name="text_learner_name">Learner Name</string>
     <string name="text_learner_details">Learner details</string>

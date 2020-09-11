@@ -23,10 +23,11 @@ import com.josamuna.toplearners.recycleradapters.LearnerSkillAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
-import retrofit.Callback;
-import retrofit.RetrofitError;
-import retrofit.client.Response;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -35,12 +36,9 @@ public class PlaceholderFragment extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
 
-    private PageViewModel pageViewModel;
     private List<PojoLearnerLeader> mLearnerLeaders = new ArrayList<>();
     private List<PojoLearnerSkillLeader> mSkillLeaders = new ArrayList<>();
     private View mRoot;
-    private RecyclerView mRvFragmentLearnerLeader;
-    private RecyclerView mRvLearnerSkill;
 
     public static PlaceholderFragment newInstance(int index) {
         PlaceholderFragment fragment = new PlaceholderFragment();
@@ -50,10 +48,11 @@ public class PlaceholderFragment extends Fragment {
         return fragment;
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        pageViewModel = ViewModelProviders.of(this).get(PageViewModel.class);
+        PageViewModel pageViewModel = ViewModelProviders.of(this).get(PageViewModel.class);
         int index = 1;
         if (getArguments() != null) {
             index = getArguments().getInt(ARG_SECTION_NUMBER);
@@ -66,7 +65,7 @@ public class PlaceholderFragment extends Fragment {
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
 
-        switch (getArguments().getInt(ARG_SECTION_NUMBER)) {
+        switch (Objects.requireNonNull(getArguments()).getInt(ARG_SECTION_NUMBER)) {
             case 1: {
                 mRoot = inflater.inflate(R.layout.fragment_learner_leader, container, false);
                 this.loadLeanerLeaders();
@@ -79,14 +78,6 @@ public class PlaceholderFragment extends Fragment {
                 break;
             }
         }
-
-//        final TextView textView = root.findViewById(R.id.section_label);
-//        pageViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-//            @Override
-//            public void onChanged(@Nullable String s) {
-//                textView.setText(s);
-//            }
-//        });
         return mRoot;
     }
 
@@ -94,16 +85,19 @@ public class PlaceholderFragment extends Fragment {
         mSkillLeaders.clear();
         final ProgressDialog progressDialog = Utils.getProgressDialog(getContext(), "Please wait");
 
-        ApiAdapter.getClient().getLearnerSkillIqLeader(new Callback<List<PojoLearnerSkillLeader>>() {
+        Call<List<PojoLearnerSkillLeader>> listCall = ApiAdapter.getClient().getLearnerSkillIqLeader();
+        listCall.enqueue(new Callback<List<PojoLearnerSkillLeader>>() {
             @Override
-            public void success(List<PojoLearnerSkillLeader> pojoLearnerSkillLeaders, Response response) {
-                progressDialog.dismiss();
-                mSkillLeaders.addAll(pojoLearnerSkillLeaders);
-                setLearnerSkillDataInRecyclerView();
+            public void onResponse(Call<List<PojoLearnerSkillLeader>> call, Response<List<PojoLearnerSkillLeader>> response) {
+                if(response.isSuccessful()) {
+                    progressDialog.dismiss();
+                    mSkillLeaders.addAll(response.body());
+                    setLearnerSkillDataInRecyclerView();
+                }
             }
 
             @Override
-            public void failure(RetrofitError error) {
+            public void onFailure(Call<List<PojoLearnerSkillLeader>> call, Throwable t) {
                 Toast.makeText(getContext(), R.string.toast_fail_load_learner_skill, Toast.LENGTH_LONG).show();
                 progressDialog.dismiss();
             }
@@ -112,51 +106,46 @@ public class PlaceholderFragment extends Fragment {
 
     private void setLearnerSkillDataInRecyclerView() {
         // Get RecyclerView Reference and Set LayoutManager
-        mRvLearnerSkill = mRoot.findViewById(R.id.rv_fragment_learner_skill);
+        RecyclerView rvLearnerSkill = mRoot.findViewById(R.id.rv_fragment_learner_skill);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
-        mRvLearnerSkill.setLayoutManager(layoutManager);
+        rvLearnerSkill.setLayoutManager(layoutManager);
 
         // Load Data in RecyclerView
         final LearnerSkillAdapter adapterSkill = new LearnerSkillAdapter(getContext(), mSkillLeaders);
-        mRvLearnerSkill.setAdapter(adapterSkill);
+        rvLearnerSkill.setAdapter(adapterSkill);
     }
 
     public void loadLeanerLeaders() {
         mLearnerLeaders.clear();
         final ProgressDialog progressDialog = Utils.getProgressDialog(getContext(), "Please wait");
 
-        ApiAdapter.getClient().getLearnerLeader(new Callback<List<PojoLearnerLeader>>() {
+        Call<List<PojoLearnerLeader>> listCall = ApiAdapter.getClient().getLearnerLeader();
+        listCall.enqueue(new Callback<List<PojoLearnerLeader>>() {
             @Override
-            public void success(List<PojoLearnerLeader> pojoLearnerLeaders, Response response) {
-                progressDialog.dismiss();
-                mLearnerLeaders.addAll(pojoLearnerLeaders);
-                setLearnerLeadersDataInRecyclerView();
+            public void onResponse(Call<List<PojoLearnerLeader>> call, Response<List<PojoLearnerLeader>> response) {
+                if(response.isSuccessful()) {
+                    progressDialog.dismiss();
+                    mLearnerLeaders.addAll(response.body());
+                    setLearnerLeadersDataInRecyclerView();
+                }
             }
 
             @Override
-            public void failure(RetrofitError error) {
+            public void onFailure(Call<List<PojoLearnerLeader>> call, Throwable t) {
                 Toast.makeText(getContext(), R.string.toast_fail_load_learner_leaders, Toast.LENGTH_LONG).show();
                 progressDialog.dismiss();
             }
         });
     }
 
-//    private ProgressDialog getProgressDialog() {
-//        final ProgressDialog progressDialog = new ProgressDialog(getContext());
-//        progressDialog.setCancelable(false);
-//        progressDialog.setMessage("Please wait");
-//        progressDialog.show();
-//        return progressDialog;
-//    }
-
     private void setLearnerLeadersDataInRecyclerView() {
         // Get RecyclerView Reference and Set LayoutManager
-        mRvFragmentLearnerLeader = mRoot.findViewById(R.id.rv_fragment_learner_leader);
+        RecyclerView rvFragmentLearnerLeader = mRoot.findViewById(R.id.rv_fragment_learner_leader);
         final LinearLayoutManager learnerLayoutManager = new LinearLayoutManager(mRoot.getContext());
-        mRvFragmentLearnerLeader.setLayoutManager(learnerLayoutManager);
+        rvFragmentLearnerLeader.setLayoutManager(learnerLayoutManager);
 
         // Load Data in RecyclerView
         final LearnerLeaderAdapter adapterLearners = new LearnerLeaderAdapter(getContext(), mLearnerLeaders);
-        mRvFragmentLearnerLeader.setAdapter(adapterLearners);
+        rvFragmentLearnerLeader.setAdapter(adapterLearners);
     }
 }
