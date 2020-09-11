@@ -38,24 +38,4 @@ public class LearnerSkillFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
     }
-
-//    private List<PojoLearnerSkillLeader> loadLeanerSkill() {
-//        List<PojoLearnerSkillLeader> leaders = new ArrayList<>();
-//
-//        Call<List<PojoLearnerSkillLeader>> listCall = ApiAdapter.getClient().getLearnerSkillIqLeader();
-//        listCall.enqueue(new Callback<List<PojoLearnerSkillLeader>>() {
-//            @Override
-//            public void onResponse(Call<List<PojoLearnerSkillLeader>> call, Response<List<PojoLearnerSkillLeader>> response) {
-//                if(response.isSuccessful()) {
-//                    leaders.addAll(response.body());
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<List<PojoLearnerSkillLeader>> call, Throwable t) {
-//                Toast.makeText(getContext(), R.string.toast_fail_load_learner_skill, Toast.LENGTH_LONG).show();
-//            }
-//        });
-//        return leaders;
-//    }
 }
